@@ -32,6 +32,10 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 The KDE Compact Disc library provides an API for applications using
 the KDE Platform to interface with the CD drives for audio CDs.
 
+%description -l pl.UTF-8
+Biblioteka KDE Compact Dics dostarcza API dla programów KDE
+do obsługi napędów CD i płyt audio.
+
 %package devel
 Summary:	Header files for %{kaname} development
 Summary(pl.UTF-8):	Pliki nagłówkowe dla programistów używających %{kaname}
