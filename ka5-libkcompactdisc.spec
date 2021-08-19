@@ -1,15 +1,15 @@
-%define		kdeappsver	21.04.3
+%define		kdeappsver	21.08.0
 %define		kframever	5.56.0
 %define		qtver		5.9.0
 %define		kaname		libkcompactdisc
 Summary:	KCompactdisc
 Name:		ka5-%{kaname}
-Version:	21.04.3
+Version:	21.08.0
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	3b5551abeb058acf0beafd800abd1001
+# Source0-md5:	3b371b651441582545e897256b6f09da
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5DBus-devel
@@ -84,4 +84,3 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/KF5/kcompactdisc_version.h
 %{_libdir}/cmake/KF5CompactDisc
 %{_libdir}/libKF5CompactDisc.so
-%{_libdir}/qt5/mkspecs/modules/qt_KCompactDisc.pri
