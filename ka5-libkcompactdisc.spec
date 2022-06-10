@@ -1,18 +1,18 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeappsver	22.04.1
+%define		kdeappsver	22.04.2
 %define		kframever	5.56.0
 %define		qtver		5.9.0
 %define		kaname		libkcompactdisc
 Summary:	KCompactdisc
 Name:		ka5-%{kaname}
-Version:	22.04.1
+Version:	22.04.2
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
-Source0:	http://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	8cbe61db4093bf4c0450504885d09a75
+Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
+# Source0-md5:	58d5d48e7590aebb70b2a4aa79e8e86f
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5DBus-devel
