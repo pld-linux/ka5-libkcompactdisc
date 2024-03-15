@@ -1,30 +1,30 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeappsver	24.01.95
+%define		kdeappsver	23.08.4
 %define		kframever	5.94.0
 %define		qtver		5.15.2
 %define		kaname		libkcompactdisc
 Summary:	KCompactdisc
 Name:		ka5-%{kaname}
-Version:	24.01.95
-Release:	0.1
+Version:	23.08.4
+Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
-Source0:	https://download.kde.org/unstable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	b3a9a660ff95a0a7e9b13ffc46b0b0dc
+Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
+# Source0-md5:	db4a23841dba6457da6e2f10c804d5c0
 URL:		http://www.kde.org/
-BuildRequires:	Qt6Core-devel >= %{qtver}
-BuildRequires:	Qt6DBus-devel
+BuildRequires:	Qt5Core-devel >= %{qtver}
+BuildRequires:	Qt5DBus-devel
 BuildRequires:	cmake >= 3.20
 BuildRequires:	gettext-devel
-BuildRequires:	kf6-extra-cmake-modules >= %{kframever}
-BuildRequires:	kf6-kcoreaddons-devel >= %{kframever}
-BuildRequires:	kf6-ki18n-devel >= %{kframever}
-BuildRequires:	kf6-solid-devel >= %{kframever}
+BuildRequires:	kf5-extra-cmake-modules >= %{kframever}
+BuildRequires:	kf5-kcoreaddons-devel >= %{kframever}
+BuildRequires:	kf5-ki18n-devel >= %{kframever}
+BuildRequires:	kf5-solid-devel >= %{kframever}
 BuildRequires:	ninja
-BuildRequires:	phonon-qt6-devel >= 4.8.0
-BuildRequires:	qt6-build >= %{qtver}
+BuildRequires:	phonon-qt5-devel >= 4.8.0
+BuildRequires:	qt5-build >= %{qtver}
 BuildRequires:	rpmbuild(macros) >= 1.164
 BuildRequires:	shared-mime-info
 BuildRequires:	tar >= 1:1.22
@@ -36,8 +36,8 @@ The KDE Compact Disc library provides an API for applications using
 the KDE Platform to interface with the CD drives for audio CDs.
 
 %description -l pl.UTF-8
-Biblioteka KDE Compact Dics dostarcza API dla programów KDE do obsługi
-napędów CD i płyt audio.
+Biblioteka KDE Compact Dics dostarcza API dla programów KDE do
+obsługi napędów CD i płyt audio.
 
 %package devel
 Summary:	Header files for %{kaname} development
@@ -60,8 +60,7 @@ Pliki nagłówkowe dla programistów używających %{kaname}.
 	-G Ninja \
 	%{!?with_tests:-DBUILD_TESTING=OFF} \
 	-DHTML_INSTALL_DIR=%{_kdedocdir} \
-	-DKDE_INSTALL_USE_QT_SYS_PATHS=ON \
-	-DQT_MAJOR_VERSION=6
+	-DKDE_INSTALL_USE_QT_SYS_PATHS=ON
 %ninja_build -C build
 
 %if %{with tests}
@@ -83,12 +82,12 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{kaname}.lang
 %defattr(644,root,root,755)
-%ghost %{_libdir}/libKCompactDisc6.so.5
-%attr(755,root,root) %{_libdir}/libKCompactDisc6.so.*.*
+%ghost %{_libdir}/libKF5CompactDisc.so.5
+%attr(755,root,root) %{_libdir}/libKF5CompactDisc.so.*.*.*
 
 %files devel
 %defattr(644,root,root,755)
-%{_includedir}/KCompactDisc6
-%{_libdir}/cmake/KCompactDisc6
-%{_libdir}/libKCompactDisc6.so
-%{_libdir}/qt6/mkspecs/modules/qt_KCompactDisc.pri
+%{_includedir}/KF5/KCompactDisc
+%{_libdir}/cmake/KF5CompactDisc
+%{_libdir}/libKF5CompactDisc.so
+%{_libdir}/qt5/mkspecs/modules/qt_KCompactDisc.pri
